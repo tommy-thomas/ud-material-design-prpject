@@ -19,11 +19,10 @@
                 android:layout_height="wrap_content"
                 android:background="@color/photo_placeholder">
                 <!--suppress AndroidLintContentDescription -->
-                <ImageView
+                <com.example.xyzreader.ui.InsetImageView
                     android:id="@+id/photo"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
+                    android:layout_height="0dp"
                     android:scaleType="centerCrop"/>
 
                 <View
@@ -35,7 +34,7 @@
 
             <com.example.xyzreader.ui.MaxWidthLinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/detail_card_top_margin"
                 android:background="#fff"
