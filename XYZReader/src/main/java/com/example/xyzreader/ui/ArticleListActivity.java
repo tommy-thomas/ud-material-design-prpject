@@ -27,6 +27,7 @@ import android.widget.TextView;
 
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
+import com.example.xyzreader.data.ItemsContract;
 import com.example.xyzreader.data.UpdaterService;
 
 import java.text.ParseException;
@@ -177,15 +178,13 @@ public class ArticleListActivity extends AppCompatActivity implements
                 @Override
                 public void onClick(View view) {
 
-                    DynamicHeightNetworkImageView ivArticle = (DynamicHeightNetworkImageView) findViewById(R.id.thumbnail);
-                    Intent intent = new Intent(ArticleListActivity.this, ArticleDetailActivity.class);
+                    Intent intent = new Intent(Intent.ACTION_VIEW,
+                            ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition())));
                     ActivityOptionsCompat options = ActivityOptionsCompat.
                             makeSceneTransitionAnimation(ArticleListActivity.this,
-                                    ivArticle,
-                                    ViewCompat.getTransitionName(ivArticle));
+                                    vh.thumbnailView,
+                                    ViewCompat.getTransitionName(vh.thumbnailView));
                     startActivity(intent, options.toBundle());
-//                    startActivity(new Intent(Intent.ACTION_VIEW,
-//                            ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
                 }
             });
             return vh;
